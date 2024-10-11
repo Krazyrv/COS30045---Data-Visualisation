@@ -4,6 +4,6 @@ Please review and use responsibly, or I might get kicked out of my university T.
 
 If you have any questions, please email: nguyenkhanhtoan14202@gmail.com
 
-Grade for total unit: 91/100
+Grade for the total unit: 91/100
 
 
