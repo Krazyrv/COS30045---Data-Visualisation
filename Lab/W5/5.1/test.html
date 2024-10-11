@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3.js Bar Chart with scaleBand</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* Add some basic styling */
+    .bar {
+      fill: steelblue;
+    }
+    .bar:hover {
+      fill: orange;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Sample dataset
+    var dataset = [14, 5, 26, 23, 9, 12, 28, 22, 16, 21, 25];
+
+    // Set dimensions
+    var w = 500;
+    var h = 300;
+    var padding = 40;
+
+    // Create SVG element
+    var svg = d3.select("body")
+      .append("svg")
+      .attr("width", w)
+      .attr("height", h);
+
+    // Create scale for x-axis
+    var xScale = d3.scaleBand()
+      .domain(d3.range(dataset.length))
+      .range([padding, w - padding])
+      .paddingInner(0.05);
+
+    // Create scale for y-axis
+    var yScale = d3.scaleLinear()
+      .domain([0, d3.max(dataset)])
+      .range([h - padding, padding]);
+
+    // Create bars
+    svg.selectAll("rect")
+      .data(dataset)
+      .enter()
+      .append("rect")
+      .attr("x", function(d, i) {
+        return xScale(i);
+      })
+      .attr("y", function(d) {
+        return yScale(d);
+      })
+      .attr("width", xScale.bandwidth())
+      .attr("height", function(d) {
+        return h - padding - yScale(d);
+      })
+      .attr("class", "bar")
+      .on("mouseover", function(d) {
+        d3.select(this).attr("fill", "orange");
+      })
+      .on("mouseout", function(d) {
+        d3.select(this).attr("fill", "steelblue");
+      });
+
+    // Create x-axis
+    var xAxis = d3.axisBottom(xScale);
+    svg.append("g")
+      .attr("transform", "translate(0," + (h - padding) + ")")
+      .call(xAxis);
+
+    // Create y-axis
+    var yAxis = d3.axisLeft(yScale);
+    svg.append("g")
+      .attr("transform", "translate(" + padding + ",0)")
+      .call(yAxis);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+.line {
+    fill: none;
+    stroke: slategray;
+    stroke-width: 0.5;
+}
+
+
+
+.charts{
+    position: relative; 
+    align-items: center;
+    gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+#right-container {
+    width: 50%; /* Adjust the width as needed */
+    /* height: 10px; */
+    float: left; /* Float the element to the left */
+}
+
+
+#right-container{
+    width: 50 wh;
+    height: 50 vh;
+}
+
+#choropleth,
+#plot, 
+#density {
+/* #choropleth,
+#plot-container, 
+#density-container { */
+    border: 1px solid #ccc;
+    margin-bottom: 20px; /* Add some margin between the charts */
+    padding: 10px; /* Add some padding inside the border */
+}
+#plot #plot-container #strokes-container {
+    border: 1px solid #ccc;
+}
+
+/* svg {
+    max-width: 46rem;
+} */
+
+
+#radar-chart{
+    width: 50%;
+    height: 50%;
+    /* max-width: 200px;
+    max-height: auto; */
+}
+
+.footer{
+    text-align: center;
+    color:red;
+    background-color: aquamarine;
+}
+#footer-placeholder {
+    position: fixed;
+}
+
+ /* CSS for the hover effect */
+ .density-path {
+    transition: opacity 0.3s ease, stroke-width 0.3s ease;
+}
+
+.density-path:hover {
+    opacity: 1;
+    fill:#3182bd;
+    stroke-width: 1.5;
+}
+
+.chart-tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 2px;
+    font: 12px sans-serif;
+    opacity: 1;
+    background: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* Style the circles */
+circle {
+    fill: steelblue;
+    opacity: 0.7;
+}
+
+/* Style the country labels */
+.country-label {
+    font-size: 10px;
+    text-anchor: middle;
+    fill: black;
+}
+
+/* Slider */
+.slider {
+    width: 40%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+}
+
+#yearSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#yearSlider:hover {
+    opacity: 1;
+}
+
+#yearSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #2d2ddc;
+    cursor: pointer;
+}
+
+#yearSlider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/* Button */
+#chart-btn:link,
+#chart-btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(27, 27, 27);
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 1000px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+#chart-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+#chart-btn:active {
+    transform: translateY(-3px);
+}
+
+#chart-btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s;
+}
+
+/* #chart-btn:hover::after {
+    background-color: rgb(0, 238, 255);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
+} */
+        
+/* #title-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: hsl(211, 100%, 50%);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+} */
+
+/* Hover effect */
+/* #title-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+} */
+
+
+/* CSS */
+#title-btn {
+    width: 300px;
+    height: 200px;
+}
+
+#title-btn,
+#title-btn:after {
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #0b0b0b 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #e95631;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#title-btn:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  
+  content: 'CLICK ITTTT';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #0b0b0bb8 3%, #00E6F6 5%, #0b0b0bb8 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+#title-btn:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .title-btn,
+  #title-btn:after {
+    width: 200px;
+    height: 86px;
+    line-height: 88px;
+  }
+}
+
+
+/* Download Button */
+#dl-btn {
+  border-radius: 10px;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Clarkson,Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+#dl-btn:before {
+  border-radius: 10px;
+  animation: opacityFallbackOut .5s step-end forwards;
+  backface-visibility: hidden;
+  opacity: 70%;
+  background-color: #EBEBEB;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+#dl-btn:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+#dl-btn:after {
+  background-color: #FFFFFF;
+}
+
+#dl-btn span {
+  z-index: 1;
+  position: relative;
+}

@@ -1,0 +1,37 @@
+html{
+    background-color: rgb(0, 255, 247);
+}
+.task1 {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.task1 img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+button{
+    background-color: rgb(0, 255, 17);
+    border: none;
+    color: darkslategray;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
+button:hover {
+    background-color: rgb(5, 136, 0);
+    color: white;
+  }
+
+a{
+    
+    color: inherit;
+}
+
+
+

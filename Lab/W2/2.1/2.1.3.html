@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "utf-8" />
+    <meta name = "description"  content = "Data Visualisation"/>
+    <meta name = "keywords"     content = "HTML,CSS,D3" />
+    <meta name = "author"       content = "Toan Nguyen" />
+
+    <title> Task 2.1 D3 Data Binding</title>
+
+    <script src = "https://d3js.org/d3.v7.min.js" ></script>
+</head>
+
+<body>
+    <h1> The D3 Journey Start Here </h1>
+
+    <script>
+        var dataset = [14,5,26,23,9]
+
+        d3.select("body").selectAll("p") //Select all paragraphs "p" in the body element
+            .data(dataset)          //This count the elements in the dataset
+            .enter()                // Create a placeholder for each element in the dataset
+            .append("p")            // Append "p" to each place holder of the dataset
+            .text(function(d,t){
+                var warning = "";
+                var advise = "";
+                if (d > 10)
+                {
+                    warning = "Warning: ";
+                    advise = " Please take a rest!";
+                }
+                return warning + "Toan played games " +d+ " times a day." +advise;           //Anonymous function that takes value from the dataset as inputs and loop through each value
+            }); 
+    </script>
+
+    <br>
+    <bf>
+    <footer style = "color:grey"> COS30045 Data Visualisation<br>
+    Toan Nguyen</footer>
+</body>
+
+</html>

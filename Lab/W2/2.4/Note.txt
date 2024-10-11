@@ -1,0 +1,1 @@
+If not being able to get the data from csv file, put this into run command (Window + R): "chrome --allow-file-access-from-files"

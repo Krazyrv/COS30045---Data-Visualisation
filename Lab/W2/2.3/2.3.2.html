@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "utf-8" />
+    <meta name = "description"  content = "Data Visualisation"/>
+    <meta name = "keywords"     content = "HTML,CSS,D3" />
+    <meta name = "author"       content = "Toan Nguyen" />
+
+    <title> Task 2.2 Drawing with data</title>
+
+    <script src = "https://d3js.org/d3.v7.min.js" ></script>
+</head>
+
+<body>
+    <h1> The D3 Journey Start Here </h1>
+
+    <script>
+        var w = 500;
+        var h = 100;
+
+        var dataset = [
+            [142,95,3],
+            [262,33,4],
+            [94,53,1],
+            [282,43,2],
+            [165,51,2],
+            [96,10,5],
+            [24,13,5],
+            [304,23,4],
+            [154,13,7],
+            [321,93,5],
+            [235,73,2]
+            ];
+
+        var svg = d3.select("body")         //Select the body of the document
+                    .append("svg")          //append the svg to the the element "body"
+                    .attr("height",h)       //svg's height
+                    .attr("width", w);      //svg's width
+
+        svg.selectAll("circle")               //select all rectangles
+            .data(dataset)                  //count and prepare dataset
+            .enter()                        //create the space holder for the dataset
+            .append("circle")
+            .attr("cx", function(d,i) {
+                return d[0];
+            })
+            .attr("cy", function(d) {
+                return d[1];
+            })
+            .attr("r", function(d) {
+                return d[2]*2;   
+            })
+            .attr("fill", "slategray");
+            ;
+        
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d){
+                return d[0] + "," + d[1] +","+ d[2];
+            })
+            .attr("x", function(d){
+                return d[0]+5;
+            })
+            .attr("y", function(d) {
+                return d[1]+2;
+            });
+
+    </script>
+
+    <br>
+    <bf>
+    <footer style = "color:grey"> COS30045 Data Visualisation<br>
+    Toan Nguyen</footer>
+</body>
+
+</html>

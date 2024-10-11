@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "utf-8" />
+    <meta name = "description"  content = "Data Visualisation"/>
+    <meta name = "keywords"     content = "HTML,CSS,D3" />
+    <meta name = "author"       content = "Toan Nguyen" />
+
+    <title> Circular Barchart</title>
+    <script src = "https://d3js.org/d3.v7.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     <!--Add JQuery Library to allow modify slider -->
+    <script src = "scripts.js" ></script>
+    <script src="radar_chart.js"></script>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body>
+    <h1> Radar Chart </h1>
+    <div id="radar-chart" class = "radar-chart"></div> 
+    
+    <div class = "slider">
+        <span id='out'></span><br>
+        <input id="yearSlider" type="range" class="test" min="0" max="9999" value = "9999" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3-scale-radial.js"></script>
+
+<!-- Create a div where the graph will take place -->
+       
+
+    <!-- <script src="cir_bar.js"></script> -->
+
+    <br>
+    <bf>
+    <footer style = "color:grey"> COS30045 Data Visualisation<br>
+    Toan Nguyen</footer>
+</body>
+
+</html>
